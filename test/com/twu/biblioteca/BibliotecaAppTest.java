@@ -7,8 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BibliotecaAppTest {
 
-    public BibliotecaApp biblioteca;
-
+    BibliotecaApp biblioteca;
 
     @Before
     public void setUp() {
