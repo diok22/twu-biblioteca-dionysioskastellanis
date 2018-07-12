@@ -1,13 +1,18 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-
+import org.junit.Before;
 import static org.junit.Assert.*;
 
 public class BookTest {
 
 
     public Book book;
+
+    @Before
+    public void setUp() {
+        book = new Book("Ready Player One", "Ernest Cline", 2011);
+    }
 
     @Test
     public void testGetTitle() {
