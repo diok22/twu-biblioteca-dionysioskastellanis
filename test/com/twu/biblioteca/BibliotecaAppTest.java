@@ -23,6 +23,6 @@ public class BibliotecaAppTest {
     @Test
     public void testListBooks() {
         String books[] = {"Ready Player one", "The Alchemist"};
-        assertEquals(books, biblioteca.books());
+        assertEquals(books, biblioteca.listBooks());
     }
 }
