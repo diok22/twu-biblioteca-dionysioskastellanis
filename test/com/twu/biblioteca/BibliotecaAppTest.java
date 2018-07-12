@@ -8,6 +8,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void testWelcomeMessage() {
+        BibliotecaApp biblioteca = new BibliotecaApp();
         assertEquals("Welcome to our Biblioteca", biblioteca.welcomeMessage());
     }
 }
