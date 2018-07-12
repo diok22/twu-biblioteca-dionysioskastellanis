@@ -20,11 +20,9 @@ public class BibliotecaAppTest {
         assertEquals("Welcome to our Biblioteca", biblioteca.welcomeMessage());
     }
 
-    /**
     @Test
     public void testListBooks() {
         String books[] = {"Ready Player one", "The Alchemist"};
-        assertEquals( books, biblioteca.books());
+        assertEquals(books, biblioteca.books());
     }
-    */
 }
