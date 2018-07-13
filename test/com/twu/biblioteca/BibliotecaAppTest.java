@@ -34,6 +34,11 @@ public class BibliotecaAppTest {
     }
     */
 
+    @Test
+    public void testShowMenu() {
+        assertEquals("1: List Books", biblioteca.showMenu());
+    }
+
 
 
 }

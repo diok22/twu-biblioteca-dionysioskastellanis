@@ -9,10 +9,11 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
-        biblioteca.welcomeMessage();
-        biblioteca.addBook("Ready Player 1", "Ernest Cline", 2011);
-        biblioteca.addBook("The Alchemist", "Paolo Coelho", 1993);
-        biblioteca.listBooks();
+        //biblioteca.welcomeMessage();
+        //biblioteca.addBook("Ready Player 1", "Ernest Cline", 2011);
+        //biblioteca.addBook("The Alchemist", "Paolo Coelho", 1993);
+        //biblioteca.showMenu();
+        //biblioteca.listBooks();
 
     }
 
@@ -32,5 +33,10 @@ public class BibliotecaApp {
             System.out.println(book.title + "\t\t" + book.author + "\t\t" + book.publicationDate);
         }
     }
+
+    public String showMenu() {
+        return ("1: List Books");
+    }
+
 
 }
