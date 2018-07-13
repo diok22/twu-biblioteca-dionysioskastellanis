@@ -10,6 +10,9 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
         biblioteca.welcomeMessage();
+        biblioteca.addBook("Head First Java", "Kathy Sierra & Bert Bates", 2005);
+        biblioteca.listBooks();
+
 
     }
 
@@ -22,7 +25,7 @@ public class BibliotecaApp {
         libraryBooks.add(addingBook);
     }
 
-    public ArrayList listBooks() {
-        return libraryBooks;
+    public String listBooks() {
+        return libraryBooks.get(0).title;
     }
 }
