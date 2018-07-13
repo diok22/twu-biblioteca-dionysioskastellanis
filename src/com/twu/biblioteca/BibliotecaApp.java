@@ -1,9 +1,11 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 
 public class BibliotecaApp {
 
-    String books[] = {"Ready Player one", "The Alchemist"};
+    ArrayList<Book> libraryBooks = new ArrayList();
 
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
@@ -15,7 +17,12 @@ public class BibliotecaApp {
         return "Welcome to our Biblioteca";
     }
 
-    public String[] listBooks() {
-        return books;
+    public void addBook(String title, String author, int publicationDate) {
+        Book addingBook = new Book(title, author, publicationDate);
+        libraryBooks.add(addingBook);
+    }
+
+    public ArrayList listBooks() {
+        return libraryBooks;
     }
 }
