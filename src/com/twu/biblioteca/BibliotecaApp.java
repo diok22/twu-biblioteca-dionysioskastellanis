@@ -65,6 +65,10 @@ public class BibliotecaApp {
         }
         if (userSelection ==1) {
             listBooks();
+            System.out.println("Which Book would you like to book?");
+            int userBookSelection = Integer.parseInt(inputScanner.next());
+            checkOutBook(userBookSelection);
+            resetUserOptions();
         }
     }
 
@@ -72,6 +76,11 @@ public class BibliotecaApp {
         Book checkingOutBook = libraryBooks.get(bookNum-1);
         bookedLibraryBooks.add(checkingOutBook);
         libraryBooks.remove(bookNum-1);
+    }
+
+    private void resetUserOptions() {
+        showMenu();
+        userOption();
     }
 
 
