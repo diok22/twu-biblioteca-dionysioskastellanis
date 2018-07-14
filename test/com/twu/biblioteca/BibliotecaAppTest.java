@@ -23,7 +23,8 @@ public class BibliotecaAppTest {
 
     @Test
     public void testWelcomeMessage() {
-        assertEquals("Welcome to our Biblioteca", biblioteca.welcomeMessage());
+        biblioteca.welcomeMessage();
+        assertTrue(systemPrintOut.toString().contains("Welcome to our Biblioteca"));
     }
 
 
@@ -40,16 +41,21 @@ public class BibliotecaAppTest {
     */
 
     @Test
-    public void testShowMenu() {
+    public void testShowMenuListBooks() {
         biblioteca.showMenu();
         assertTrue(systemPrintOut.toString().contains("1: List Books"));
-        //assertTrue(systemOut().contains("0 : List Books\n"));
+    }
 
+    @Test
+    public void testShowMenuQuit() {
+        biblioteca.showMenu();
+        assertTrue(systemPrintOut.toString().contains("0: Quit"));
     }
 
     @Test
     public void testInvalidOptionMessage() {
-        assertEquals("Select a valid option!", biblioteca.invalidOption());
+        biblioteca.invalidOption();
+        assertTrue(systemPrintOut.toString().contains("Select a valid option!"));
     }
 
 

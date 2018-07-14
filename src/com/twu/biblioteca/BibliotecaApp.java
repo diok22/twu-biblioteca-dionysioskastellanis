@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-// import java.util.Scanner;
+import java.util.Scanner;
 
 
 public class BibliotecaApp {
 
     ArrayList<Book> libraryBooks = new ArrayList();
-    private final String[] menuList = {"1: List Books"};
+    private final String[] menuList = {"1: List Books", "0: Quit"};
 
 
     public static void main(String[] args) {
@@ -16,16 +16,17 @@ public class BibliotecaApp {
         biblioteca.addBook("Ready Player 1", "Ernest Cline", 2011);
         biblioteca.addBook("The Alchemist", "Paolo Coelho", 1993);
         biblioteca.showMenu();
+        biblioteca.userOption();
         // biblioteca.listBooks();
     }
 
-    public String welcomeMessage() {
+    public void welcomeMessage() {
         //StringBuilder returnString;
         //returnString = new StringBuilder();
         //returnString.append("Welcome to our Biblioteca");
         //System.out.println("test");
         //return returnString.toString();
-        return ("Welcome to our Biblioteca");
+        System.out.println("Welcome to our Biblioteca \n");
     }
 
 
@@ -43,12 +44,21 @@ public class BibliotecaApp {
 
     public void showMenu() {
         for (int i = 0; i<menuList.length; i++) {
-            System.out.println(menuList[0]);
+            System.out.println(menuList[i]);
         }
     }
 
-    public String invalidOption() {
-        return ("Select a valid option!");
+    public void invalidOption() {
+        System.out.println("Select a valid option!");
+    }
+
+    public void userOption() {
+        System.out.println("Select an option");
+        Scanner inputScanner = new Scanner(System.in);
+        String userSelection = inputScanner.next();
+        if (userSelection != "1") {
+            invalidOption();
+        }
     }
 
 
