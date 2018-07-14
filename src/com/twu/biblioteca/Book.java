@@ -4,6 +4,7 @@ public class Book {
     String title;
     String author;
     int publicationDate;
+    boolean isBooked = false;
 
     public Book(String title, String author, int publicationDate) {
         this.title = title;
@@ -21,6 +22,10 @@ public class Book {
 
     public int getPublicationDate() {
         return this.publicationDate;
+    }
+
+    public boolean isBooked() {
+        return this.isBooked;
     }
 
 }

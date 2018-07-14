@@ -29,4 +29,9 @@ public class BookTest {
         assertEquals(2011, book.getPublicationDate());
     }
 
+    @Test
+    public void testIsBookedIsFalseByDefault() {
+        assertFalse(book.isBooked());
+    }
+
 }

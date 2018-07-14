@@ -52,12 +52,13 @@ public class BibliotecaAppTest {
         assertTrue(systemPrintOut.toString().contains("0: Quit"));
     }
 
+    /**
     @Test
     public void testInvalidOptionMessage() {
         biblioteca.invalidOption();
         assertTrue(systemPrintOut.toString().contains("Select a valid option!"));
     }
-
+    */
 
 
 }

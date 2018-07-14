@@ -43,6 +43,7 @@ public class BibliotecaApp {
     }
 
     public void showMenu() {
+        System.out.println("Select an option");
         for (int i = 0; i<menuList.length; i++) {
             System.out.println(menuList[i]);
         }
@@ -50,14 +51,20 @@ public class BibliotecaApp {
 
     public void invalidOption() {
         System.out.println("Select a valid option!");
+        userOption();
     }
 
     public void userOption() {
-        System.out.println("Select an option");
         Scanner inputScanner = new Scanner(System.in);
-        String userSelection = inputScanner.next();
-        if (userSelection != "1") {
+        int userSelection = Integer.parseInt(inputScanner.next());
+        if (userSelection == 0 ) {
+            System.out.println("Bye and thanks for visiting!");
+        }
+        if (userSelection != 1) {
             invalidOption();
+        }
+        if (userSelection ==1) {
+            listBooks();
         }
     }
 
