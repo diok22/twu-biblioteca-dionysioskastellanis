@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     ArrayList<Book> libraryBooks = new ArrayList();
+    ArrayList<Book> bookedLibraryBooks = new ArrayList();
     private final String[] menuList = {"1: List Books", "0: Quit"};
 
 
@@ -17,7 +18,6 @@ public class BibliotecaApp {
         biblioteca.addBook("The Alchemist", "Paolo Coelho", 1993);
         biblioteca.showMenu();
         biblioteca.userOption();
-        // biblioteca.listBooks();
     }
 
     public void welcomeMessage() {
@@ -66,6 +66,12 @@ public class BibliotecaApp {
         if (userSelection ==1) {
             listBooks();
         }
+    }
+
+    public void checkOutBook(int bookNum) {
+        Book checkingOutBook = libraryBooks.get(bookNum-1);
+        bookedLibraryBooks.add(checkingOutBook);
+        libraryBooks.remove(bookNum-1);
     }
 
 

@@ -60,5 +60,12 @@ public class BibliotecaAppTest {
     }
     */
 
+    @Test
+    public void testCheckoutBook() {
+        biblioteca.checkOutBook(1);
+        assertFalse(String.valueOf(false), biblioteca.bookedLibraryBooks.isEmpty());
+
+    }
+
 
 }

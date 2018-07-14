@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 public class Book {
+    int bookId;
     String title;
     String author;
     int publicationDate;
@@ -27,5 +28,6 @@ public class Book {
     public boolean isBooked() {
         return this.isBooked;
     }
+
 
 }
