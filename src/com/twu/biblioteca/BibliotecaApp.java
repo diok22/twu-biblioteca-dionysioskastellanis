@@ -38,7 +38,9 @@ public class BibliotecaApp {
     public void listBooks() {
         System.out.println("Title of Book" + "\t\t" + "Author" + "\t\t" + "Publication Date");
         for (Book book : libraryBooks) {
-            System.out.println(book.title + "\t\t" + book.author + "\t\t" + book.publicationDate);
+            if (book.isBooked == false) {
+                System.out.println(book.title + "\t\t" + book.author + "\t\t" + book.publicationDate);
+            }
         }
     }
 
@@ -73,9 +75,10 @@ public class BibliotecaApp {
     }
 
     public void checkOutBook(int bookNum) {
-        Book checkingOutBook = libraryBooks.get(bookNum-1);
-        bookedLibraryBooks.add(checkingOutBook);
-        libraryBooks.remove(bookNum-1);
+        libraryBooks.get(bookNum-1).isBooked = true;
+        // Book checkingOutBook = libraryBooks.get(bookNum-1);
+        //bookedLibraryBooks.add(checkingOutBook);
+        //libraryBooks.remove(bookNum-1);
     }
 
     private void resetUserOptions() {
