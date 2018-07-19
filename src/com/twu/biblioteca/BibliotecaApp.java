@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    Menu menu = new Menu();
-
     private Book[] libraryBooks = new Book[] {
             new Book("Ready Player One", "Ernest Cline", 2011),
             new Book("Flash Boys", "Michael Lewis", 2015),
@@ -18,13 +16,11 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
-        biblioteca.welcomeMessage();
-       // biblioteca.showMenu();
-        //biblioteca.userOption();
-    }
+        Menu menu = new Menu();
 
-    public String welcomeMessage() {
-        return menu.showWelcomeMessage();
+        menu.showWelcomeMessage();
+        menu.listOptions();
+
     }
 
     public String listBooks() {
@@ -38,11 +34,6 @@ public class BibliotecaApp {
             }
         }
         return stringBuilderOutput.toString();
-    }
-
-
-    public String showMenu() {
-        return menu.listOptions();
     }
 
 

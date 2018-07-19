@@ -31,12 +31,6 @@ public class BibliotecaAppTest {
         System.setOut(new PrintStream(systemPrintOut));
     }
 
-    @Test
-    public void testWelcomeMessage() {
-        assertEquals("Welcome to our Biblioteca", biblioteca.welcomeMessage());
-    }
-
-
 
     @Test
     public void testListBooks() {
@@ -49,12 +43,6 @@ public class BibliotecaAppTest {
     }
 
 
-
-
-    @Test
-    public void testShowMenuListBooks() {
-        assertEquals("1. List Books" + "\n", biblioteca.showMenu());
-    }
 
 
     /**
