@@ -30,8 +30,10 @@ public class BibliotecaApp {
     public String listBooks() {
         StringBuilder stringBuilderOutput = new StringBuilder();
         for (int i = 0; i < libraryBooks.length; i++) {
+
+            //stringBuilderOutput.append("bgbgb");
             Book book = libraryBooks[i];
-            if (book.isBooked = false) {
+            if (book.isBooked == false) {
                 stringBuilderOutput.append(book.formatOutput());
             }
         }
@@ -47,6 +49,10 @@ public class BibliotecaApp {
     public void invalidOption() {
         System.out.println("Select a valid option!");
         //userOption();
+    }
+
+    public void reserveBook(Book book) {
+        book.setBooked(book.isBooked());
     }
 
     /**

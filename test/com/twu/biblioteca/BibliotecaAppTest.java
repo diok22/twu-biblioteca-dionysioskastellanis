@@ -17,10 +17,10 @@ public class BibliotecaAppTest {
 
     private Book[] libraryBooks = new Book[] {
             new Book("Ready Player One", "Ernest Cline", 2011),
-            new Book("Flash Boys", "Michael Lewis", 2015)
+            new Book("Flash Boys", "Michael Lewis", 2015),
+            new Book("Foundation", "Isaac Asimov", 1951),
+            new Book("The Hobbit", "J.R.R. Tolkien", 1937)
     };
-
-
 
 
     private ByteArrayOutputStream systemPrintOut = new ByteArrayOutputStream();
@@ -41,7 +41,10 @@ public class BibliotecaAppTest {
     @Test
     public void testListBooks() {
         String testLibraryBooksStringOutput = "Ready Player One - Ernest Cline - 2011\n" +
-                "Flash Boys - Michael Lewis - 2015\n";
+                "Flash Boys - Michael Lewis - 2015\n" +
+                "Foundation - Isaac Asimov - 1951\n" +
+                "The Hobbit - J.R.R. Tolkien - 1937\n";
+
         assertEquals(testLibraryBooksStringOutput, biblioteca.listBooks());
     }
 
