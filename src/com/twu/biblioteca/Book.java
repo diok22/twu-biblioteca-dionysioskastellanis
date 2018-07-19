@@ -29,8 +29,7 @@ public class Book {
         String titleString = this.getTitle();
         String authorString = this.getAuthor();
         int publicationDateString = this.getPublicationDate();
-        return String.format("%s - %s - %d\n",
-                title, author, publicationDate);
+        return(titleString + " - " + authorString + " - " + publicationDateString + "\n");
     }
 
     public boolean isBooked() {

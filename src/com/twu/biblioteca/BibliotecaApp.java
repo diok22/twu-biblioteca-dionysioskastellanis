@@ -36,18 +36,13 @@ public class BibliotecaApp {
             }
         }
         return stringBuilderOutput.toString();
-
-
     }
 
-    /**
-    public void showMenu() {
-        System.out.println("Select an option");
-        for (int i = 0; i<menuList.length; i++) {
-            System.out.println(menuList[i]);
-        }
+
+    public String showMenu() {
+        return menu.listOptions();
     }
-     */
+
 
     public void invalidOption() {
         System.out.println("Select a valid option!");

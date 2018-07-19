@@ -15,7 +15,7 @@ public class BibliotecaAppTest {
 
     BibliotecaApp biblioteca;
 
-    private Book[] testLibraryBooks = new Book[] {
+    private Book[] libraryBooks = new Book[] {
             new Book("Ready Player One", "Ernest Cline", 2011),
             new Book("Flash Boys", "Michael Lewis", 2015)
     };
@@ -47,13 +47,12 @@ public class BibliotecaAppTest {
 
 
 
-    /**
+
     @Test
     public void testShowMenuListBooks() {
-        biblioteca.showMenu();
-        assertTrue(systemPrintOut.toString().contains("1: List Books"));
+        assertEquals("1. List Books" + "\n", biblioteca.showMenu());
     }
-     */
+
 
     /**
     @Test
