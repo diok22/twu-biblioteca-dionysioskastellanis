@@ -41,10 +41,16 @@ public class BibliotecaApp {
     public void userOption() {
         Scanner userInput = new Scanner(System.in);
         String input = userInput.nextLine();
-        if (input.equals("1")) {
-            System.out.print(listBooks());
-        } else {
-            invalidOption();
+        while (!input.equals("0")) {
+            if (input.equals("1")) {
+                System.out.print(listBooks());
+            } else if (input.equals("2")) {
+                System.out.println("Which book title would you like to check out?");
+                checkoutBook();
+            } else {
+                invalidOption();
+            }
+            input = userInput.nextLine();
         }
     }
 
@@ -55,6 +61,19 @@ public class BibliotecaApp {
 
     public void reserveBook(Book book) {
         book.setBooked(book.isBooked());
+    }
+
+    public void checkoutBook() {
+        Scanner userInput = new Scanner(System.in);
+        String input = userInput.nextLine();
+        for (Book book : libraryBooks) {
+            if (book.getTitle().equals(input) && !book.isBooked()) {
+                book.setBooked(true);
+                System.out.println("Thank you! Enjoy the book");
+            }
+        }
+        System.out.println("The Books is not available");
+        System.out.print(listBooks());
     }
 
     /**
@@ -77,21 +96,6 @@ public class BibliotecaApp {
     }
      */
 
-    /**
-    public void checkOutBook(int bookNum) {
-        libraryBooks.get(bookNum-1).isBooked = true;
-        // Book checkingOutBook = libraryBooks.get(bookNum-1);
-        //bookedLibraryBooks.add(checkingOutBook);
-        //libraryBooks.remove(bookNum-1);
-    }
-     */
-
-    /**
-    private void resetUserOptions() {
-        showMenu();
-        userOption();
-    }
-     */
 
 
 }

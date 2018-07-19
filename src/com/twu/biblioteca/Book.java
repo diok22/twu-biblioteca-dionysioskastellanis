@@ -38,6 +38,6 @@ public class Book {
 
 
     public void setBooked(boolean booked) {
-        isBooked = booked;
+        this.isBooked = booked;
     }
 }

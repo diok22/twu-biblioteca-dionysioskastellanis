@@ -29,16 +29,10 @@ public class MenuTest {
     public void testListOptions() {
         menu.listOptions();
         assertTrue(systemPrintOut.toString().contains("1. List Books"));
+        assertTrue(systemPrintOut.toString().contains("0. Quit"));
+        assertTrue(systemPrintOut.toString().contains("2. Checkout book"));
     }
 
-
-    /**
-    @Test
-    public void testInvalidUserOption() {
-        menu.selectOptionInput();
-        assertTrue(systemPrintOut.toString().contains("Invalid Option!"));
-    }
-    */
 
 
 

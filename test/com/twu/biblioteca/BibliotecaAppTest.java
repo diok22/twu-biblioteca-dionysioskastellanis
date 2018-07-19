@@ -53,12 +53,10 @@ public class BibliotecaAppTest {
         assertTrue(systemPrintOut.toString().contains("Ready Player One"));
     }
 
-
     /**
     @Test
-    public void testShowMenuQuit() {
-        biblioteca.showMenu();
-        assertTrue(systemPrintOut.toString().contains("0: Quit"));
+    public void testSelectUntilpressQuit() {
+
     }
     */
 
