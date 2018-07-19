@@ -31,7 +31,7 @@ public class BookTest {
 
     @Test
     public void testFormatOutput() {
-        assertEquals("    Ready Player One -         Ernest Cline - 2011\n", book.formatOuput());
+        assertEquals("Ready Player One - Ernest Cline - 2011\n", book.formatOutput());
     }
 
     @Test

@@ -6,56 +6,55 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    ArrayList<Book> libraryBooks = new ArrayList();
-    ArrayList<Book> bookedLibraryBooks = new ArrayList();
-    private final String[] menuList = {"1: List Books", "0: Quit"};
+    Menu menu = new Menu();
+
+    private Book[] libraryBooks = new Book[] {
+            new Book("Ready Player One", "Ernest Cline", 2011),
+            new Book("Flash Boys", "Michael Lewis", 2015),
+            new Book("Foundation", "Isaac Asimov", 1951),
+            new Book("The Hobbit", "J.R.R. Tolkien", 1937)
+    };
 
 
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
         biblioteca.welcomeMessage();
-        biblioteca.addBook("Ready Player 1", "Ernest Cline", 2011);
-        biblioteca.addBook("The Alchemist", "Paolo Coelho", 1993);
-        biblioteca.showMenu();
-        biblioteca.userOption();
+       // biblioteca.showMenu();
+        //biblioteca.userOption();
     }
 
-    public void welcomeMessage() {
-        //StringBuilder returnString;
-        //returnString = new StringBuilder();
-        //returnString.append("Welcome to our Biblioteca");
-        //System.out.println("test");
-        //return returnString.toString();
-        System.out.println("Welcome to our Biblioteca \n");
+    public String welcomeMessage() {
+        return menu.showWelcomeMessage();
     }
 
-
-    public void addBook(String title, String author, int publicationDate) {
-        Book addingBook = new Book(title, author, publicationDate);
-        libraryBooks.add(addingBook);
-    }
-
-    public void listBooks() {
-        System.out.println("Title of Book" + "\t\t" + "Author" + "\t\t" + "Publication Date");
-        for (Book book : libraryBooks) {
-            if (book.isBooked == false) {
-                System.out.println(book.title + "\t\t" + book.author + "\t\t" + book.publicationDate);
+    public String listBooks() {
+        StringBuilder stringBuilderOutput = new StringBuilder();
+        for (int i = 0; i < libraryBooks.length; i++) {
+            Book book = libraryBooks[i];
+            if (book.isBooked = false) {
+                stringBuilderOutput.append(book.formatOutput());
             }
         }
+        return stringBuilderOutput.toString();
+
+
     }
 
+    /**
     public void showMenu() {
         System.out.println("Select an option");
         for (int i = 0; i<menuList.length; i++) {
             System.out.println(menuList[i]);
         }
     }
+     */
 
     public void invalidOption() {
         System.out.println("Select a valid option!");
-        userOption();
+        //userOption();
     }
 
+    /**
     public void userOption() {
         Scanner inputScanner = new Scanner(System.in);
         int userSelection = Integer.parseInt(inputScanner.next());
@@ -73,18 +72,23 @@ public class BibliotecaApp {
             resetUserOptions();
         }
     }
+     */
 
+    /**
     public void checkOutBook(int bookNum) {
         libraryBooks.get(bookNum-1).isBooked = true;
         // Book checkingOutBook = libraryBooks.get(bookNum-1);
         //bookedLibraryBooks.add(checkingOutBook);
         //libraryBooks.remove(bookNum-1);
     }
+     */
 
+    /**
     private void resetUserOptions() {
         showMenu();
         userOption();
     }
+     */
 
 
 }

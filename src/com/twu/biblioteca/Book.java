@@ -25,11 +25,11 @@ public class Book {
         return this.publicationDate;
     }
 
-    public String formatOuput() {
+    public String formatOutput() {
         String titleString = this.getTitle();
         String authorString = this.getAuthor();
         int publicationDateString = this.getPublicationDate();
-        return String.format("%20s - %20s - %4d\n",
+        return String.format("%s - %s - %d\n",
                 title, author, publicationDate);
     }
 
