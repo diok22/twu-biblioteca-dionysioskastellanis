@@ -30,6 +30,11 @@ public class BookTest {
     }
 
     @Test
+    public void testFormatOutput() {
+        assertEquals("    Ready Player One -         Ernest Cline - 2011\n", book.formatOuput());
+    }
+
+    @Test
     public void testIsBookedIsFalseByDefault() {
         assertFalse(book.isBooked());
     }

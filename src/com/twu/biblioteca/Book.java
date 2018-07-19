@@ -25,9 +25,19 @@ public class Book {
         return this.publicationDate;
     }
 
+    public String formatOuput() {
+        String titleString = this.getTitle();
+        String authorString = this.getAuthor();
+        int publicationDateString = this.getPublicationDate();
+        return String.format("%20s - %20s - %4d\n",
+                title, author, publicationDate);
+    }
+
     public boolean isBooked() {
         return this.isBooked;
     }
+
+
 
 
 }
