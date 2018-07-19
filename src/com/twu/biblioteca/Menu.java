@@ -22,5 +22,11 @@ public class Menu {
         System.out.println("Invalid Option!");
     }
 
+    public void selectInvalidUserOption(int input){
+
+    }
+
+
+
 
 }

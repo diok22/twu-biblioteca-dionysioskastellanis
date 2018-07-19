@@ -20,6 +20,7 @@ public class BibliotecaApp {
 
         menu.showWelcomeMessage();
         menu.listOptions();
+        biblioteca.userOption();
 
     }
 
@@ -37,9 +38,19 @@ public class BibliotecaApp {
     }
 
 
+    public void userOption() {
+        Scanner userInput = new Scanner(System.in);
+        String input = userInput.nextLine();
+        if (input.equals("1")) {
+            System.out.print(listBooks());
+        } else {
+            invalidOption();
+        }
+    }
+
+
     public void invalidOption() {
         System.out.println("Select a valid option!");
-        //userOption();
     }
 
     public void reserveBook(Book book) {
