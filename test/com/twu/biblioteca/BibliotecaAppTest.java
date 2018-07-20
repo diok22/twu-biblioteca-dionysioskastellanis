@@ -47,8 +47,8 @@ public class BibliotecaAppTest {
 
     @Test
     public void testUserInputListingBooks() {
-        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("1".getBytes());
-        System.setIn(systemPrintIn);
+        // ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("1".getBytes());
+        // System.setIn(systemPrintIn);
         biblioteca.userOption("1");
         assertTrue(systemPrintOut.toString().contains("Ready Player One"));
     }
@@ -57,22 +57,31 @@ public class BibliotecaAppTest {
 
     @Test
     public void testInvalidOptionMessage() {
-        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("S".getBytes());
-        System.setIn(systemPrintIn);
+        //ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("S".getBytes());
+        //System.setIn(systemPrintIn);
         biblioteca.userOption("S");
-        assertEquals(systemPrintOut.toString(), "Select a");
-//        assertTrue(systemPrintOut.toString().contains("Select a valid option!"));
+        assertEquals(systemPrintOut.toString(), "Select a valid option!\n");
     }
 
 
-    /**
+
     @Test
     public void testCheckoutBook() {
-        biblioteca.checkOutBook(1);
-        assertFalse(String.valueOf(false), biblioteca.libraryBooks.isEmpty());
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("2");
+        assertTrue(systemPrintOut.toString().contains("Thank you! Enjoy the book"));
     }
 
-    */
+    @Test
+    public void testCheckoutBookNotInList() {
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("2");
+        assertFalse(systemPrintOut.toString().contains("Foundation"));
+    }
+
+
 
 
 

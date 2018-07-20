@@ -19,7 +19,7 @@ public class Menu {
     }
 
     public void invalidOption() {
-        System.out.println("Invalid Option!");
+        System.out.println("Select a valid option!");
     }
 
     public void selectInvalidUserOption(int input){
