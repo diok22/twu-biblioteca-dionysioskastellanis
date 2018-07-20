@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 public class Book {
-    int bookId;
     String title;
     String author;
     int publicationDate;

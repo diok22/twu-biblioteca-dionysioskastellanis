@@ -11,8 +11,7 @@ public class Menu {
 
     public void listOptions() {
         StringBuilder stringBuilderOutput = new StringBuilder();
-        for (int i = 0; i < options.length; i++) {
-            String option = options[i];
+        for (String option : options) {
             stringBuilderOutput.append(option + "\n");
         }
         System.out.println(stringBuilderOutput.toString());
@@ -21,9 +20,6 @@ public class Menu {
     public void invalidOption() {
         System.out.println("Select a valid option!");
     }
-
-
-
 
 
 }

@@ -1,9 +1,7 @@
 package com.twu.biblioteca;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-// import org.junit.After;
 import static org.junit.Assert.*;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -34,7 +32,7 @@ public class BibliotecaAppTest {
         testLibraryBooksStringOutput = "Ready Player One - Ernest Cline - 2011\n" +
                 "Flash Boys - Michael Lewis - 2015\n" +
                 "Foundation - Isaac Asimov - 1951\n" +
-                "The Hobbit - J.R.R. Tolkien - 1937\n";
+                "The Hobbit - J.R.R. Tolkien - 1937\n\n";
     }
 
 

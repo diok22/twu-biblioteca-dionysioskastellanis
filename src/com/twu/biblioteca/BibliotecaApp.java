@@ -16,6 +16,7 @@ public class BibliotecaApp {
     private Menu menu = new Menu();
 
     public static void main(String[] args) {
+
         BibliotecaApp biblioteca = new BibliotecaApp();
 
         biblioteca.userSelectionScreen();
@@ -24,14 +25,12 @@ public class BibliotecaApp {
 
     public String listBooks() {
         StringBuilder stringBuilderOutput = new StringBuilder();
-        for (int i = 0; i < libraryBooks.length; i++) {
-
-            Book book = libraryBooks[i];
-            if (book.isBooked == false) {
+        for (Book book : libraryBooks) {
+            if (!book.isBooked) {
                 stringBuilderOutput.append(book.formatOutput());
             }
         }
-        return stringBuilderOutput.toString();
+        return stringBuilderOutput.append("\n").toString();
     }
 
     public static String getUserOption(){
@@ -63,12 +62,8 @@ public class BibliotecaApp {
              selection = getUserOption();
              userOption(selection);
         }
-
     }
 
-    public void reserveBook(Book book) {
-        book.setBooked(book.isBooked());
-    }
 
     public void checkoutBook() {
         boolean bookFound = false;
@@ -78,12 +73,11 @@ public class BibliotecaApp {
             if (book.getTitle().equals(input) && !book.isBooked()) {
                 book.setBooked(true);
                 bookFound = true;
-                System.out.println("Thank you! Enjoy the book");
+                System.out.println("Thank you! Enjoy the book \n");
             }
-
         }
         if (!bookFound) {
-            System.out.println("The Book is not available");
+            System.out.println("The Book is not available \n");
         }
         System.out.print(listBooks());
     }
@@ -96,14 +90,14 @@ public class BibliotecaApp {
             if (book.getTitle().equals(input) && book.isBooked()) {
                 book.setBooked(false);
                 bookFound = true;
-                System.out.println("Thank you for returning the book");
+                System.out.println("Thank you for returning the book \n");
             }
-
         }
         if (!bookFound) {
-            System.out.println("That is not a valid book return");
+            System.out.println("That is not a valid book return \n");
         }
         System.out.print(listBooks());
     }
+
 
 }

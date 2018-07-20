@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class BookTest {
 
 
-    public Book book;
+    private Book book;
 
     @Before
     public void setUp() {
@@ -39,5 +39,10 @@ public class BookTest {
         assertFalse(book.isBooked());
     }
 
+    @Test
+    public void testSetBooked() {
+        book.setBooked(true);
+        assertTrue(book.isBooked());
+    }
 
 }
