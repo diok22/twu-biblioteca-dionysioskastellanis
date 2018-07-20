@@ -13,14 +13,12 @@ public class BibliotecaApp {
             new Book("The Hobbit", "J.R.R. Tolkien", 1937)
     };
 
+    private Menu menu = new Menu();
 
     public static void main(String[] args) {
         BibliotecaApp biblioteca = new BibliotecaApp();
-        Menu menu = new Menu();
 
-        menu.showWelcomeMessage();
-        menu.listOptions();
-        biblioteca.userOption();
+        biblioteca.userOption(getUserOption());
 
     }
 
@@ -28,7 +26,6 @@ public class BibliotecaApp {
         StringBuilder stringBuilderOutput = new StringBuilder();
         for (int i = 0; i < libraryBooks.length; i++) {
 
-            //stringBuilderOutput.append("bgbgb");
             Book book = libraryBooks[i];
             if (book.isBooked == false) {
                 stringBuilderOutput.append(book.formatOutput());
@@ -37,10 +34,15 @@ public class BibliotecaApp {
         return stringBuilderOutput.toString();
     }
 
-
-    public void userOption() {
+    public static String getUserOption(){
         Scanner userInput = new Scanner(System.in);
         String input = userInput.nextLine();
+        return input;
+    }
+
+
+    public void userOption( String input) {
+
         while (!input.equals("0")) {
             if (input.equals("1")) {
                 System.out.print(listBooks());
@@ -50,8 +52,19 @@ public class BibliotecaApp {
             } else {
                 invalidOption();
             }
-            input = userInput.nextLine();
+            //input = getUserOption();
         }
+    }
+
+    public void userSelectionScreen() {
+        menu.showWelcomeMessage();
+        String selection = "-1";
+         while (!selection.equals("0")) {
+             menu.listOptions();
+             selection = getUserOption();
+
+        }
+
     }
 
 
@@ -71,31 +84,10 @@ public class BibliotecaApp {
                 book.setBooked(true);
                 System.out.println("Thank you! Enjoy the book");
             }
+
         }
         System.out.println("The Books is not available");
         System.out.print(listBooks());
     }
-
-    /**
-    public void userOption() {
-        Scanner inputScanner = new Scanner(System.in);
-        int userSelection = Integer.parseInt(inputScanner.next());
-        if (userSelection == 0 ) {
-            System.out.println("Bye and thanks for visiting!");
-        }
-        if (userSelection != 1) {
-            invalidOption();
-        }
-        if (userSelection ==1) {
-            listBooks();
-            System.out.println("Which Book would you like to book?");
-            int userBookSelection = Integer.parseInt(inputScanner.next());
-            checkOutBook(userBookSelection);
-            resetUserOptions();
-        }
-    }
-     */
-
-
 
 }

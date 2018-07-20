@@ -49,24 +49,19 @@ public class BibliotecaAppTest {
     public void testUserInputListingBooks() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("1".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption();
+        biblioteca.userOption("1");
         assertTrue(systemPrintOut.toString().contains("Ready Player One"));
     }
 
-    /**
-    @Test
-    public void testSelectUntilpressQuit() {
-
-    }
-    */
 
 
     @Test
     public void testInvalidOptionMessage() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("S".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption();
-        assertTrue(systemPrintOut.toString().contains("Select a valid option!"));
+        biblioteca.userOption("S");
+        assertEquals(systemPrintOut.toString(), "Select a");
+//        assertTrue(systemPrintOut.toString().contains("Select a valid option!"));
     }
 
 
