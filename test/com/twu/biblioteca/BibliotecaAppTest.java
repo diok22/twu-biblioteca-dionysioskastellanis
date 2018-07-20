@@ -60,13 +60,13 @@ public class BibliotecaAppTest {
         //ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("S".getBytes());
         //System.setIn(systemPrintIn);
         biblioteca.userOption("S");
-        assertEquals(systemPrintOut.toString(), "Select a valid option!\n");
+        assertEquals("Select a valid option!\n", systemPrintOut.toString());
     }
 
 
 
     @Test
-    public void testCheckoutBook() {
+    public void testCheckoutBookInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
         biblioteca.userOption("2");
@@ -74,13 +74,54 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void testCheckoutBookNotInList() {
+    public void testCheckoutBookNotInListInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
         biblioteca.userOption("2");
         assertFalse(systemPrintOut.toString().contains("Foundation"));
     }
 
+    @Test
+    public void testCheckoutUnavailableBookInput() {
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("The Last Question".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("2");
+        assertTrue(systemPrintOut.toString().contains("The Book is not available"));
+
+    }
+
+    @Test
+    public void testReturnBookInput() {
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("2");
+        ByteArrayInputStream systemPrintIn2 = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn2);
+        biblioteca.userOption("3");
+        assertTrue(systemPrintOut.toString().contains("Thank you for returning the book"));
+    }
+
+    @Test
+    public void testReturnBookInListInput() {
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("2");
+        ByteArrayInputStream systemPrintIn2 = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn2);
+        biblioteca.userOption("3");
+        assertTrue(systemPrintOut.toString().contains("Foundation"));
+    }
+
+    @Test
+    public void testReturnUnaivalableBookInListInput() {
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("2");
+        ByteArrayInputStream systemPrintIn2 = new ByteArrayInputStream("Foundationss".getBytes());
+        System.setIn(systemPrintIn2);
+        biblioteca.userOption("3");
+        assertTrue(systemPrintOut.toString().contains("That is not a valid book return"));
+    }
 
 
 

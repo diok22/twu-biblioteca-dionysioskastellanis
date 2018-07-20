@@ -44,12 +44,15 @@ public class BibliotecaApp {
     public void userOption( String input) {
          if (input.equals("1")) {
                 System.out.print(listBooks());
-            } else if (input.equals("2")) {
-                System.out.println("Which book title would you like to check out?");
-                checkoutBook();
-            } else {
-                menu.invalidOption();
-            }
+         } else if (input.equals("2")) {
+             System.out.println("Which book title would you like to check out?");
+             checkoutBook();
+         } else if (input.equals("3")) {
+             System.out.println("Which book title would you like to check out?");
+             returnBook();
+         }
+         else {
+             menu.invalidOption(); }
     }
 
     public void userSelectionScreen() {
@@ -59,7 +62,6 @@ public class BibliotecaApp {
              menu.listOptions();
              selection = getUserOption();
              userOption(selection);
-
         }
 
     }
@@ -81,8 +83,25 @@ public class BibliotecaApp {
 
         }
         if (!bookFound) {
-            System.out.println("The Books is not available");
+            System.out.println("The Book is not available");
+        }
+        System.out.print(listBooks());
+    }
 
+    public void returnBook() {
+        boolean bookFound = false;
+        Scanner userInput = new Scanner(System.in);
+        String input = userInput.nextLine();
+        for (Book book : libraryBooks) {
+            if (book.getTitle().equals(input) && book.isBooked()) {
+                book.setBooked(false);
+                bookFound = true;
+                System.out.println("Thank you for returning the book");
+            }
+
+        }
+        if (!bookFound) {
+            System.out.println("That is not a valid book return");
         }
         System.out.print(listBooks());
     }
