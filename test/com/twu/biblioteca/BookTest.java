@@ -45,4 +45,10 @@ public class BookTest {
         assertTrue(book.isBooked());
     }
 
+    public void whoCheckedItOut() {
+        assertEquals(null, book.getCheckedOutUser());
+    }
+
+
+
 }

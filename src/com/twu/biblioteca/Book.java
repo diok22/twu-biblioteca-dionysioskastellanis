@@ -1,10 +1,11 @@
 package com.twu.biblioteca;
 
 public class Book {
-    String title;
-    String author;
-    int publicationDate;
-    boolean isBooked = false;
+    private String title;
+    private String author;
+    private int publicationDate;
+    public boolean isBooked = false;
+    private String checkedOutUser = null;
 
     public Book(String title, String author, int publicationDate) {
         this.title = title;
@@ -38,5 +39,9 @@ public class Book {
 
     public void setBooked(boolean booked) {
         this.isBooked = booked;
+    }
+
+    public String getCheckedOutUser() {
+        return this.checkedOutUser;
     }
 }
