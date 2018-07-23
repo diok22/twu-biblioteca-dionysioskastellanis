@@ -21,6 +21,7 @@ public class BibliotecaAppTest {
     };
 
     String testLibraryBooksStringOutput;
+    String testLibraryMoviesStringOutput;
 
 
     private ByteArrayOutputStream systemPrintOut = new ByteArrayOutputStream();
@@ -33,6 +34,9 @@ public class BibliotecaAppTest {
                 "Flash Boys - Michael Lewis - 2015\n" +
                 "Foundation - Isaac Asimov - 1951\n" +
                 "The Hobbit - J.R.R. Tolkien - 1937\n\n";
+        testLibraryMoviesStringOutput = "Batman Begins - 2005 - Christopher Nolan - 8\n" +
+                "The Dark Knight - 2008 - Christopher Nolan - 9\n" +
+                "The Dark Knight Rises - 2012 - Christopher Nolan - 8\n\n";
     }
 
 
@@ -41,6 +45,10 @@ public class BibliotecaAppTest {
         assertEquals(testLibraryBooksStringOutput, biblioteca.listBooks());
     }
 
+    @Test
+    public void testListMovies() {
+        assertEquals(testLibraryMoviesStringOutput, biblioteca.listMovies());
+    }
 
 
     @Test
@@ -49,6 +57,12 @@ public class BibliotecaAppTest {
         // System.setIn(systemPrintIn);
         biblioteca.userOption("1");
         assertTrue(systemPrintOut.toString().contains("Ready Player One"));
+    }
+
+    @Test
+    public void testUserInputListingMovies() {
+        biblioteca.userOption("2");
+        assertTrue(systemPrintOut.toString().contains("The Dark Knight"));
     }
 
 
@@ -67,7 +81,7 @@ public class BibliotecaAppTest {
     public void testCheckoutBookInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption("2");
+        biblioteca.userOption("3");
         assertTrue(systemPrintOut.toString().contains("Thank you! Enjoy the book"));
     }
 
@@ -75,7 +89,7 @@ public class BibliotecaAppTest {
     public void testCheckoutBookNotInListInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption("2");
+        biblioteca.userOption("3");
         assertFalse(systemPrintOut.toString().contains("Foundation"));
     }
 
@@ -83,7 +97,7 @@ public class BibliotecaAppTest {
     public void testCheckoutUnavailableBookInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("The Last Question".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption("2");
+        biblioteca.userOption("3");
         assertTrue(systemPrintOut.toString().contains("The Book is not available"));
 
     }
@@ -92,10 +106,10 @@ public class BibliotecaAppTest {
     public void testReturnBookInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption("2");
+        biblioteca.userOption("3");
         ByteArrayInputStream systemPrintIn2 = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn2);
-        biblioteca.userOption("3");
+        biblioteca.userOption("4");
         assertTrue(systemPrintOut.toString().contains("Thank you for returning the book"));
     }
 
@@ -103,10 +117,10 @@ public class BibliotecaAppTest {
     public void testReturnBookInListInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption("2");
+        biblioteca.userOption("3");
         ByteArrayInputStream systemPrintIn2 = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn2);
-        biblioteca.userOption("3");
+        biblioteca.userOption("4");
         assertTrue(systemPrintOut.toString().contains("Foundation"));
     }
 
@@ -114,10 +128,10 @@ public class BibliotecaAppTest {
     public void testReturnUnaivalableBookInListInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
-        biblioteca.userOption("2");
+        biblioteca.userOption("3");
         ByteArrayInputStream systemPrintIn2 = new ByteArrayInputStream("Foundationss".getBytes());
         System.setIn(systemPrintIn2);
-        biblioteca.userOption("3");
+        biblioteca.userOption("4");
         assertTrue(systemPrintOut.toString().contains("That is not a valid book return"));
     }
 

@@ -31,6 +31,14 @@ public class Movie {
         return this.rating;
     }
 
+    public String formatOutput() {
+        String nameString = this.getName();
+        int yearString = this.getYear();
+        String directorString = this.getDirector();
+        int ratingString = this.getRating();
+        return(nameString + " - " + yearString + " - " + directorString + " - " + ratingString + "\n");
+    }
+
     public boolean isBooked() {
         return this.isBooked;
     }

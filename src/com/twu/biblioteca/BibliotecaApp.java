@@ -13,6 +13,12 @@ public class BibliotecaApp {
             new Book("The Hobbit", "J.R.R. Tolkien", 1937)
     };
 
+    private Movie[] libraryMovies = new Movie[] {
+            new Movie("Batman Begins", 2005, "Christopher Nolan", 8),
+            new Movie("The Dark Knight", 2008, "Christopher Nolan", 9),
+            new Movie("The Dark Knight Rises", 2012, "Christopher Nolan", 8)
+    };
+
     private Menu menu = new Menu();
 
     public static void main(String[] args) {
@@ -33,6 +39,16 @@ public class BibliotecaApp {
         return stringBuilderOutput.append("\n").toString();
     }
 
+    public String listMovies() {
+        StringBuilder stringBuilderOutput = new StringBuilder();
+        for (Movie movie : libraryMovies) {
+            if (!movie.isBooked) {
+                stringBuilderOutput.append(movie.formatOutput());
+            }
+        }
+        return stringBuilderOutput.append("\n").toString();
+    }
+
     public static String getUserOption(){
         Scanner userInput = new Scanner(System.in);
         String input = userInput.nextLine();
@@ -42,11 +58,13 @@ public class BibliotecaApp {
 
     public void userOption( String input) {
          if (input.equals("1")) {
-                System.out.print(listBooks());
+             System.out.print(listBooks());
          } else if (input.equals("2")) {
+             System.out.print(listMovies());
+         } else if (input.equals("3")) {
              System.out.println("Which book title would you like to check out?");
              checkoutBook();
-         } else if (input.equals("3")) {
+         } else if (input.equals("4")) {
              System.out.println("Which book title would you like to check out?");
              returnBook();
          }

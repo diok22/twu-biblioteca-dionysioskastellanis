@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 public class Menu {
 
-    private String[] options = new String[]{"1. List Books","2. Checkout book", "3. Return book", "0. Quit", };
+    private String[] options = new String[]{"1. List Books","2. List Movies", "3. Checkout book", "4. Return book", "0. Quit", };
 
     public void showWelcomeMessage() {
         System.out.print("Welcome to our Biblioteca \n");
