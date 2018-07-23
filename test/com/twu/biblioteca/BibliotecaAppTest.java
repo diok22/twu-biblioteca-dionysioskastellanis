@@ -86,6 +86,15 @@ public class BibliotecaAppTest {
     }
 
     @Test
+    public void testCheckoutMovieInput() {
+        ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("The Dark Knight".getBytes());
+        System.setIn(systemPrintIn);
+        biblioteca.userOption("5");
+        assertTrue(systemPrintOut.toString().contains("Thank you! Enjoy the movie"));
+    }
+
+
+    @Test
     public void testCheckoutBookNotInListInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
@@ -101,6 +110,7 @@ public class BibliotecaAppTest {
         assertTrue(systemPrintOut.toString().contains("The Book is not available"));
 
     }
+
 
     @Test
     public void testReturnBookInput() {
@@ -125,7 +135,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void testReturnUnaivalableBookInListInput() {
+    public void testReturnUnavailableBookInListInput() {
         ByteArrayInputStream systemPrintIn = new ByteArrayInputStream("Foundation".getBytes());
         System.setIn(systemPrintIn);
         biblioteca.userOption("3");
@@ -134,8 +144,6 @@ public class BibliotecaAppTest {
         biblioteca.userOption("4");
         assertTrue(systemPrintOut.toString().contains("That is not a valid book return"));
     }
-
-
 
 
 }

@@ -67,6 +67,11 @@ public class BibliotecaApp {
          } else if (input.equals("4")) {
              System.out.println("Which book title would you like to check out?");
              returnBook();
+         } else if (input.equals("5")) {
+             System.out.println("Which movie would you like to check out?");
+             checkoutMovie();
+         } else if (input.equals("0")) {
+             System.out.println("Bye");
          }
          else {
              menu.invalidOption(); }
@@ -98,6 +103,23 @@ public class BibliotecaApp {
             System.out.println("The Book is not available \n");
         }
         System.out.print(listBooks());
+    }
+
+    public void checkoutMovie() {
+        boolean movieFound = false;
+        Scanner userInput = new Scanner(System.in);
+        String input = userInput.nextLine();
+        for (Movie movie : libraryMovies) {
+            if (movie.getName().equals(input) && !movie.isBooked()) {
+                movie.setBooked(true);
+                movieFound = true;
+                System.out.println("Thank you! Enjoy the movie \n");
+            }
+        }
+        if (!movieFound) {
+            System.out.println("The movie is not available \n");
+        }
+        System.out.print(listMovies());
     }
 
     public void returnBook() {

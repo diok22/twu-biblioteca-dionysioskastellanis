@@ -31,6 +31,7 @@ public class MenuTest {
         assertTrue(systemPrintOut.toString().contains("2. List Movies"));
         assertTrue(systemPrintOut.toString().contains("3. Checkout book"));
         assertTrue(systemPrintOut.toString().contains("4. Return book"));
+        assertTrue(systemPrintOut.toString().contains("5. Checkout movie"));
         assertTrue(systemPrintOut.toString().contains("0. Quit"));
 
     }
